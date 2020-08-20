@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import javax.servlet.http.HttpServletRequest;
 
+import com.team4.config.JwtRequestFilter;
 import com.team4.controllers.NameController;
 
 public class SlidingWindow extends RateLimiterr {
@@ -41,7 +42,10 @@ public class SlidingWindow extends RateLimiterr {
 	@Override
 	public boolean allow(HttpServletRequest request) {
 		// String user = request.getRemoteUser();
-		String user = "user2";
+		JwtRequestFilter obj=new JwtRequestFilter();
+		
+		String user = obj.User;
+		System.out.println(user);
 		
 		//Extracts path from the URL given.
 		String path = "";
