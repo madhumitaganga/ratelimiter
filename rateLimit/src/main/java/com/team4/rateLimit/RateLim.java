@@ -16,9 +16,3 @@ public @interface RateLim {
 	int rlimit() default 0;
 }
 
-@Documented
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-@interface RepAnno {
-	RateLim[] value();
-}

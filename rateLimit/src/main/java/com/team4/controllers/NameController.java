@@ -5,10 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.team4.config.JwtRequestFilter;
 import com.team4.rateLimit.RateLim;
 import com.team4.rateLimit.RateLimiterr;
 import com.team4.rateLimit.SlidingWindow;
@@ -19,35 +17,13 @@ import models.Name;
 @RestController
 @RequiredArgsConstructor
 public class NameController  {
-
-/** default section	**/
-	  
-	
-	/*public NameController(HttpServletRequest request) {
-		RateLimiterr rateLimiter = new SlidingWindow(1);
-		send( request);
-	// TODO Auto-generated constructor stub
-}
-
-	public ResponseEntity<Name> send(HttpServletRequest request)
-	{
-		boolean canRun = rateLimiter.allow(request);
-		if (canRun) {
-			return new ResponseEntity<Name>(new Name("madhumita", "ganga"), HttpStatus.OK);
-		} else {
-			return new ResponseEntity(HttpStatus.TOO_MANY_REQUESTS);
-		}
-	}*/
-	
-	//till here
-	
 	
 	private RateLimiterr rateLimiter = new SlidingWindow(1);
 
 	/**
 	 * Receives a request and passes it through a rate limiter. METHOD = Get.
 	 * 
-	 * @param HttpServletRequest.
+	 * @param request
 	 * @return Object of class Name with Http Status.
 	 */
 	@RateLim(user = "user1", rlimit = 0)
@@ -59,14 +35,14 @@ public class NameController  {
 		if (canRun) {
 			return new ResponseEntity<Name>(new Name("madhumita", "ganga"), HttpStatus.OK);
 		} else {
-			return new ResponseEntity(HttpStatus.TOO_MANY_REQUESTS);
+			return new ResponseEntity<Name>(HttpStatus.TOO_MANY_REQUESTS);
 		}
 	}
 
 	/**
 	 * Receives a request and passes it through a rate limiter. METHOD = Get.
 	 * 
-	 * @param HttpServletRequest.
+	 * @param request
 	 * @return Object of class Name with Http Status.
 	 */
 	@RateLim(user = "user1", rlimit = 1)
@@ -76,9 +52,9 @@ public class NameController  {
 	{
 		boolean canRun = rateLimiter.allow(request);
 		if (canRun) {
-			return new ResponseEntity<Name>(new Name("mansi", "singh"), HttpStatus.OK);
+			return new ResponseEntity<>(new Name("mansi", "singh"), HttpStatus.OK);
 		} else {
-			return new ResponseEntity(HttpStatus.TOO_MANY_REQUESTS);
+			return new ResponseEntity<>(HttpStatus.TOO_MANY_REQUESTS);
 		}
 	}
 	

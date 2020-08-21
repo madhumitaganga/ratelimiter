@@ -34,17 +34,15 @@ public class SlidingWindow extends RateLimiterr {
 	 * Receives the request and processes to determine if request can be served or
 	 * not.
 	 * 
-	 * 
-	 * @param HttpServletRequest.
+	 *
+	 * @param request
 	 * @return boolean true if it can be serviced, boolean false if it cannot be
 	 *         serviced.
 	 */
 	@Override
 	public boolean allow(HttpServletRequest request) {
-		// String user = request.getRemoteUser();
-		JwtRequestFilter obj=new JwtRequestFilter();
 		
-		String user = obj.User;
+		String user = JwtRequestFilter.User;
 		System.out.println(user);
 		
 		//Extracts path from the URL given.
@@ -127,4 +125,5 @@ public class SlidingWindow extends RateLimiterr {
 		userAPIPairs.put(userAPI, hashmap);
 		return count <= maxRequestPerSec;
 	}
+
 }

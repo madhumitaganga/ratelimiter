@@ -45,7 +45,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			jwtToken = requestTokenHeader;
 			try {
 				username = jwtTokenUtil.getUsernameFromToken(jwtToken);
-				this.User = username;
+				JwtRequestFilter.User = username;
 				System.out.println("usepoints=" + username);
 			} catch (IllegalArgumentException e) {
 				System.out.println("Unable to get JWT Token");
