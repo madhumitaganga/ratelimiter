@@ -54,7 +54,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             try {
                 username = jwtTokenUtil.getUsernameFromToken(jwtToken);
                 JwtRequestFilter.User = username;
-                System.out.println("usepoints=" + username);
+                System.out.println("usepoints = " + username);
             } catch (IllegalArgumentException e) {
                 System.out.println("Unable to get JWT Token");
             } catch (ExpiredJwtException e) {
@@ -62,7 +62,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             }
         } else {
 
-            logger.warn("No proper request!!Check the requesttoken");
+            logger.warn("No proper request. Check the request token header");
         }
 
         /**

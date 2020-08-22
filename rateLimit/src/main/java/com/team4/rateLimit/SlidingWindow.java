@@ -15,11 +15,11 @@ public class SlidingWindow extends RateLimiterr {
     /**
      * Map to store the different UserAPI pairs.
      */
-    private static final ConcurrentMap<String, ConcurrentMap<Long, Integer>> userAPIPairs = new ConcurrentHashMap<String, ConcurrentMap<Long, Integer>>();
+    private final ConcurrentMap<String, ConcurrentMap<Long, Integer>> userAPIPairs = new ConcurrentHashMap<String, ConcurrentMap<Long, Integer>>();
     /**
      * Map to store the current userAPI pair window.
      */
-    private static final ConcurrentMap<Long, Integer> windows = new ConcurrentHashMap<Long, Integer>();
+    private final ConcurrentMap<Long, Integer> windows = new ConcurrentHashMap<Long, Integer>();
 
     /**
      * Initializes the default rate limit value.

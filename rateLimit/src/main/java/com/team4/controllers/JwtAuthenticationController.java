@@ -33,10 +33,10 @@ public class JwtAuthenticationController {
     private UserDetailsService jwtInMemoryUserDetailsService;
 
     /**
-     * Controller method to get a token value.
+     * Controller method to get authorised token value.
      * METHOD = POST.
      *
-     * @param authenticationRequest contains the username and password inputted.
+     * @param authenticationRequest contains the username and password input.
      * @return Either 200 OK http status along with object, or TOO_MANY_REQUESTS.
      * @throws Exception
      */
@@ -55,10 +55,10 @@ public class JwtAuthenticationController {
     }
 
     /**
-     * Method to validate/autheticate the given username and password.
+     * Method to validate /authenticate the given username and password.
      *
-     * @param username username that has been inputted.
-     * @param password password that has been inputted.
+     * @param username username that has been input.
+     * @param password password that has been input.
      * @throws Exception
      */
     private void authenticate(String username, String password) throws Exception {
