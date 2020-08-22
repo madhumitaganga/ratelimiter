@@ -16,11 +16,16 @@ import com.team4.controllers.NameController;
 @SpringBootTest
 public class BuildVerificationTest {
 
-	@Autowired
-	private NameController controller;
+    @Autowired
+    private NameController controller;
 
-	@Test
-	public void smokeTest() throws Exception {
-		assertThat(controller).isNotNull();
-	}
+    /**
+     * Basic test to verify if controller is not null.
+     *
+     * @throws Exception
+     */
+    @Test
+    public void smokeTest() throws Exception {
+        assertThat(controller).isNotNull();
+    }
 }

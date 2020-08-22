@@ -3,40 +3,49 @@ package com.team4.model;
 import java.io.Serializable;
 
 public class JwtRequest implements Serializable {
-   
-	
-	// serialUID for serialization and deserialization
-	private static final long serialVersionUID = 5926468583005150707L;
-	
-	private String username;
-	private String password;
-	
-	//need default constructor for JSON Parsing
-	public JwtRequest()
-	{
-		
-	}
 
-	
-	//storing the request for the current session
-	public JwtRequest(String username, String password) {
-		this.setUsername(username);
-		this.setPassword(password);
-	}
 
-	public String getUsername() {
-		return this.username;
-	}
+    /**
+     * serialUID for serialization and deserialization.
+     */
+    private static final long serialVersionUID = 5926468583005150707L;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    private String username;
+    private String password;
 
-	public String getPassword() {
-		return this.password;
-	}
+    /**
+     * Default constructor for JSON Parsing.
+     */
+    public JwtRequest() {
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    }
+
+
+    /**
+     * Storing the request for the current session.
+     */
+    public JwtRequest(String username, String password) {
+        this.setUsername(username);
+        this.setPassword(password);
+    }
+
+    /**
+     * Getters and setters for username and password.
+     */
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

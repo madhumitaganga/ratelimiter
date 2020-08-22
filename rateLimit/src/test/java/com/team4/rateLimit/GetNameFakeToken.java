@@ -14,21 +14,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @AutoConfigureMockMvc
-public class WebApplicationTest {
+public class GetNameFakeToken {
 
     @Autowired
     MockMvc mockMvc;
 
     /**
-     * Method to check if 404 Error will occur if wrong path is given.
+     * Method to test if /name/getName will return error if token is wrong.
      *
      * @throws Exception
      */
     @Test
-    public void unknownRoute() throws Exception {
-        this.mockMvc.perform(get("/falsePath")).andExpect(status().is4xxClientError());
+    public void testGetNameDiff() throws Exception {
+        this.mockMvc.perform(get("/name/getName").header("Authorization" , "FAKETOKEN")).andExpect(status().is4xxClientError());
     }
 }
-
 
 

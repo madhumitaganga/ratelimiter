@@ -1,14 +1,24 @@
-package models;
+package com.team4.model;
 
 public class Name {
 	private String firstName;
 	private String lastName;
-	
+
+	/**
+	 * Constructor method.
+	 * @param firstName firstname string given.
+	 * @param lastName lastname string given.
+	 */
 	public Name(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+
+	/**
+	 * Getters and setters for firstname and lastname
+	 */
+
 	public String getFirstName() {
 		return firstName;
 	}

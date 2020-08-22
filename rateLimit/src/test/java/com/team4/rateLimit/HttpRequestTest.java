@@ -20,6 +20,11 @@ public class HttpRequestTest {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
+	/**
+	 * Method to check if url is working.
+	 *
+	 * @throws Exception
+	 */
 	@Test
 	public void greetingShouldReturnDefaultMessage() throws Exception {
 		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/name/getName",
